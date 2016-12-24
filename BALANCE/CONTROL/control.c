@@ -74,7 +74,7 @@ int EXTI9_5_IRQHandler(void)
 **************************************************************************/
 int balance(float Angle,float Gyro)
 {  
-   float Bias,kp=300,kd=1;
+   float Bias,kp=300,kd=1.2;
 	 int balance;
 	 Bias=ZHONGZHI-Angle;       //===求出平衡的角度中值 和机械相关
 	 balance=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
@@ -171,8 +171,8 @@ void Set_Pwm(int moto1,int moto2)
 void Xianfu_Pwm(void)
 {	
 	  int Amplitude=6900;    //===PWM满幅是7200 限制在6900
-	  if(Flag_Qian==1)  Moto1+=DIFFERENCE;  //DIFFERENCE是一个衡量平衡小车电机和机械安装差异的一个变量。直接作用于输出，让小车具有更好的一致性。
-	  if(Flag_Hou==1)   Moto2-=DIFFERENCE;
+	  if(Flag_Qian==1)  Moto1-=DIFFERENCE;  //DIFFERENCE是一个衡量平衡小车电机和机械安装差异的一个变量。直接作用于输出，让小车具有更好的一致性。
+	  if(Flag_Hou==1)   Moto2+=DIFFERENCE;
     if(Moto1<-Amplitude) Moto1=-Amplitude;	
 		if(Moto1>Amplitude)  Moto1=Amplitude;	
 	  if(Moto2<-Amplitude) Moto2=-Amplitude;	
@@ -220,7 +220,7 @@ u8 Turn_Off(float angle, int voltage)
 入口参数：获取角度的算法 1：DMP  2：卡尔曼 3：互补滤波
 返回  值：无
 **************************************************************************/
-#define Rgyro 0.4f
+#define Rgyro 0.36f
 int8_t angleArr[2]={0};
 void Get_Angle(u8 way)
 { 
