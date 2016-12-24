@@ -30,28 +30,28 @@ int EXTI9_5_IRQHandler(void)
 	 //if(PBin(5)==0)		
 	//{   
 		//printf("exti9\n");
-		  /*EXTI->PR=1<<5;                                                      //清除LINE5上的中断标志位   
+		  //EXTI->PR=1<<5;                                                      //清除LINE5上的中断标志位   
 		  Flag_Target=!Flag_Target;
-		  if(delay_flag==1)
+		  /*if(delay_flag==1)
 			 {
 				 if(++delay_50==100)	 delay_50=0,delay_flag=0;                     //给主函数提供50ms的精准延时
-			 }
-		  if(Flag_Target==1)                                                  //5ms读取一次陀螺仪和加速度计的值，更高的采样频率可以改善卡尔曼滤波和互补滤波的效果
+			 }*/
+		    if(Flag_Target==1)                                                  //5ms读取一次陀螺仪和加速度计的值，更高的采样频率可以改善卡尔曼滤波和互补滤波的效果
 			{
-			//Get_Angle(Way_Angle);                                               //===更新姿态	
-			return 0;	                                               
-			}   */                                                                //10ms控制一次，为了保证M法测速的时间基准，首先读取编码器数据
+				Get_Angle(Way_Angle);                                               //===更新姿态	
+				return 0;	                                               
+			}                                                                   //10ms控制一次，为了保证M法测速的时间基准，首先读取编码器数据
 			Get_Angle(Way_Angle);
-			//Encoder_Left=-Read_Encoder(2);                                      //===读取编码器的值，因为两个电机的旋转了180度的，所以对其中一个取反，保证输出极性一致
-			//Encoder_Right=Read_Encoder(4);                                      //===读取编码器的值
+			Encoder_Left=-Read_Encoder(2);                                      //===读取编码器的值，因为两个电机的旋转了180度的，所以对其中一个取反，保证输出极性一致
+			Encoder_Right=Read_Encoder(4);                                      //===读取编码器的值
 	  	//Get_Angle(Way_Angle);                                               //===更新姿态	
 			//Read_Distane();                                                     //===获取超声波测量距离值
   		//if(Bi_zhang==0)Led_Flash(100);                                      //===LED闪烁;常规模式 1s改变一次指示灯的状态	
 			//if(Bi_zhang==1)Led_Flash(0);                                        //===LED闪烁;避障模式 指示灯常亮	
   		//Voltage=Get_battery_volt();                                         //===获取电池电压	          
 			//Key();                                                              //===扫描按键状态 单击双击可以改变小车运行状态
- 			Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===平衡PID控制	
-		  //Velocity_Pwm=velocity(Encoder_Left,Encoder_Right);                  //===速度环PID控制	 记住，速度反馈是正反馈，就是小车快的时候要慢下来就需要再跑快一点
+ 			//Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===平衡PID控制	
+		  Velocity_Pwm=velocity(Encoder_Left,Encoder_Right);                  //===速度环PID控制	 记住，速度反馈是正反馈，就是小车快的时候要慢下来就需要再跑快一点
  	    //Turn_Pwm    =turn(Encoder_Left,Encoder_Right,Gyro_Turn);            //===转向环PID控制     
  		  Moto1=Balance_Pwm-Velocity_Pwm+Turn_Pwm;                            //===计算左轮电机最终PWM
  	  	  Moto2=Balance_Pwm-Velocity_Pwm-Turn_Pwm;                            //===计算右轮电机最终PWM
@@ -74,7 +74,7 @@ int EXTI9_5_IRQHandler(void)
 **************************************************************************/
 int balance(float Angle,float Gyro)
 {  
-   float Bias,kp=300,kd=1.2;
+   float Bias,kp=300,kd=1.8;
 	 int balance;
 	 Bias=ZHONGZHI-Angle;       //===求出平衡的角度中值 和机械相关
 	 balance=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
@@ -90,16 +90,16 @@ int balance(float Angle,float Gyro)
 int velocity(int encoder_left,int encoder_right)
 {  
      static float Velocity,Encoder_Least,Encoder,Movement;
-	  static float Encoder_Integral,Target_Velocity;
+	  static float Encoder_Integral,Target_Velocity=0;
 	  float kp=80,ki=0.4;
 	  //=============遥控前进后退部分=======================// 
-	  if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //如果进入避障模式,自动进入低速模式
-    else 	                         Target_Velocity=110;                 
+	  //if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //如果进入避障模式,自动进入低速模式
+    //else 	                         Target_Velocity=110;                 
 		if(1==Flag_Qian)    	Movement=Target_Velocity/Flag_sudu;	         //===前进标志位置1 
 		else if(1==Flag_Hou)	Movement=-Target_Velocity/Flag_sudu;         //===后退标志位置1
 	  else  Movement=0;	
-	  if(Bi_zhang==1&&Distance<500&&Flag_Left!=1&&Flag_Right!=1)        //避障标志位置1且非遥控转弯的时候，进入避障模式
-	  Movement=-Target_Velocity/Flag_sudu;
+	  //if(Bi_zhang==1&&Distance<500&&Flag_Left!=1&&Flag_Right!=1)        //避障标志位置1且非遥控转弯的时候，进入避障模式
+	  //Movement=-Target_Velocity/Flag_sudu;
    //=============速度PI控制器=======================//	
 		Encoder_Least =(Encoder_Left+Encoder_Right)-0;                    //===获取最新速度偏差==测量速度（左右编码器之和）-目标速度（此处为零） 
 		Encoder *= 0.8;		                                                //===一阶低通滤波器       

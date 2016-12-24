@@ -30,8 +30,8 @@ int main(void)
 	//uart_init(72,128000);           //=====初始化串口1
 	//uart3_init(36,9600);            //=====串口3初始化
 	MiniBalance_PWM_Init(7199,0);   //=====初始化PWM 10KHZ，用于驱动电机 如需初始化电调接口 改为MiniBalance_PWM_Init(9999,35) 200HZ
-	//Encoder_Init_TIM2();            //=====编码器接口
-	//Encoder_Init_TIM4();            //=====初始化编码器2 
+	Encoder_Init_TIM2();            //=====编码器接口
+	Encoder_Init_TIM4();            //=====初始化编码器2 
 	//Adc_Init();                     //=====adc初始化
 	IIC_Init();                     //=====模拟IIC初始化
 	delay_ms(50);

@@ -7,7 +7,7 @@
 **************************************************************************/
 #define PI 3.14159265
 #define ZHONGZHI (-0.8f) 
-#define DIFFERENCE 50
+#define DIFFERENCE 30
 extern	int Balance_Pwm,Velocity_Pwm,Turn_Pwm;
 int EXTI15_10_IRQHandler(void);
 int balance(float angle,float gyro);
