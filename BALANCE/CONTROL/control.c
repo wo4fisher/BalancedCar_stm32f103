@@ -50,8 +50,8 @@ int EXTI9_5_IRQHandler(void)
 			//if(Bi_zhang==1)Led_Flash(0);                                        //===LED闪烁;避障模式 指示灯常亮	
   		//Voltage=Get_battery_volt();                                         //===获取电池电压	          
 			//Key();                                                              //===扫描按键状态 单击双击可以改变小车运行状态
- 			//Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===平衡PID控制	
-		  Velocity_Pwm=velocity(Encoder_Left,Encoder_Right);                  //===速度环PID控制	 记住，速度反馈是正反馈，就是小车快的时候要慢下来就需要再跑快一点
+ 			Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===平衡PID控制	
+		  //Velocity_Pwm=velocity(Encoder_Left,Encoder_Right);                  //===速度环PID控制	 记住，速度反馈是正反馈，就是小车快的时候要慢下来就需要再跑快一点
  	    //Turn_Pwm    =turn(Encoder_Left,Encoder_Right,Gyro_Turn);            //===转向环PID控制     
  		  Moto1=Balance_Pwm-Velocity_Pwm+Turn_Pwm;                            //===计算左轮电机最终PWM
  	  	  Moto2=Balance_Pwm-Velocity_Pwm-Turn_Pwm;                            //===计算右轮电机最终PWM
@@ -74,7 +74,7 @@ int EXTI9_5_IRQHandler(void)
 **************************************************************************/
 int balance(float Angle,float Gyro)
 {  
-   float Bias,kp=300,kd=1.8;
+   float Bias,kp=320,kd=1.5;
 	 int balance;
 	 Bias=ZHONGZHI-Angle;       //===求出平衡的角度中值 和机械相关
 	 balance=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
@@ -91,7 +91,7 @@ int velocity(int encoder_left,int encoder_right)
 {  
      static float Velocity,Encoder_Least,Encoder,Movement;
 	  static float Encoder_Integral,Target_Velocity=0;
-	  float kp=80,ki=0.4;
+	  float kp=-80,ki=-0.5;
 	  //=============遥控前进后退部分=======================// 
 	  //if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //如果进入避障模式,自动进入低速模式
     //else 	                         Target_Velocity=110;                 
