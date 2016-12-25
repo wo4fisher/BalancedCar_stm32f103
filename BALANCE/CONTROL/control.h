@@ -7,11 +7,11 @@
 **************************************************************************/
 #define PI 3.14159265
 #define ZHONGZHI (-1.5f) 
-#define DIFFERENCE 50
+#define DIFFERENCE 10
 extern	int Balance_Pwm,Velocity_Pwm,Turn_Pwm;
 int EXTI15_10_IRQHandler(void);
 int balance(float angle,float gyro);
-int velocity(int encoder_left,int encoder_right);
+void velocity(int encoder_left,int encoder_right);
 int turn(int encoder_left,int encoder_right,float gyro);
 void Set_Pwm(int moto1,int moto2);
 void Key(void);

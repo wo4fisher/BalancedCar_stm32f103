@@ -15,12 +15,12 @@
 "..\obj\usart3.o"
 "..\obj\exti.o"
 "..\obj\control.o"
-"..\obj\inv_mpu.o"
-"..\obj\inv_mpu_dmp_motion_driver.o"
 "..\obj\filter.o"
 "..\obj\mpu6050.o"
 "..\obj\show.o"
 "..\obj\datascope_dp.o"
+"..\obj\inv_mpu.o"
+"..\obj\inv_mpu_dmp_motion_driver.o"
 --strict --scatter "..\OBJ\Minibalance.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

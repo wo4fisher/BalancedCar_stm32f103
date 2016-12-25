@@ -42,16 +42,16 @@ int EXTI9_5_IRQHandler(void)
 				return 0;	                                               
 			}                                                                   //10ms¿ØÖÆÒ»´Î£¬ÎªÁË±£Ö¤M·¨²âËÙµÄÊ±¼ä»ù×¼£¬Ê×ÏÈ¶ÁÈ¡±àÂëÆ÷Êı¾İ
 			Get_Angle(Way_Angle);
-			Encoder_Left=-Read_Encoder(2);                                      //===¶ÁÈ¡±àÂëÆ÷µÄÖµ£¬ÒòÎªÁ½¸öµç»úµÄĞı×ªÁË180¶ÈµÄ£¬ËùÒÔ¶ÔÆäÖĞÒ»¸öÈ¡·´£¬±£Ö¤Êä³ö¼«ĞÔÒ»ÖÂ
-			Encoder_Right=Read_Encoder(4);                                      //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
+			Encoder_Left=-Read_Encoder(4);                                      //===¶ÁÈ¡±àÂëÆ÷µÄÖµ£¬ÒòÎªÁ½¸öµç»úµÄĞı×ªÁË180¶ÈµÄ£¬ËùÒÔ¶ÔÆäÖĞÒ»¸öÈ¡·´£¬±£Ö¤Êä³ö¼«ĞÔÒ»ÖÂ
+			Encoder_Right=Read_Encoder(2);                                      //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
 	  	//Get_Angle(Way_Angle);                                               //===¸üĞÂ×ËÌ¬	
 			//Read_Distane();                                                     //===»ñÈ¡³¬Éù²¨²âÁ¿¾àÀëÖµ
   		//if(Bi_zhang==0)Led_Flash(100);                                      //===LEDÉÁË¸;³£¹æÄ£Ê½ 1s¸Ä±äÒ»´ÎÖ¸Ê¾µÆµÄ×´Ì¬	
 			//if(Bi_zhang==1)Led_Flash(0);                                        //===LEDÉÁË¸;±ÜÕÏÄ£Ê½ Ö¸Ê¾µÆ³£ÁÁ	
   		//Voltage=Get_battery_volt();                                         //===»ñÈ¡µç³ØµçÑ¹	          
 			//Key();                                                              //===É¨Ãè°´¼ü×´Ì¬ µ¥»÷Ë«»÷¿ÉÒÔ¸Ä±äĞ¡³µÔËĞĞ×´Ì¬
- 			Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===Æ½ºâPID¿ØÖÆ	
-		  //Velocity_Pwm=velocity(Encoder_Left,Encoder_Right);                  //===ËÙ¶È»·PID¿ØÖÆ	 ¼Ç×¡£¬ËÙ¶È·´À¡ÊÇÕı·´À¡£¬¾ÍÊÇĞ¡³µ¿ìµÄÊ±ºòÒªÂıÏÂÀ´¾ÍĞèÒªÔÙÅÜ¿ìÒ»µã
+ 			//velocity(Encoder_Left,Encoder_Right);                  //===ËÙ¶È»·PID¿ØÖÆ	 ¼Ç×¡£¬ËÙ¶È·´À¡ÊÇÕı·´À¡£¬¾ÍÊÇĞ¡³µ¿ìµÄÊ±ºòÒªÂıÏÂÀ´¾ÍĞèÒªÔÙÅÜ¿ìÒ»µ
+			Balance_Pwm =balance(Angle_Balance,Gyro_Balance);                   //===Æ½ºâPID¿ØÖÆ	
  	    //Turn_Pwm    =turn(Encoder_Left,Encoder_Right,Gyro_Turn);            //===×ªÏò»·PID¿ØÖÆ     
  		  Moto1=Balance_Pwm-Velocity_Pwm+Turn_Pwm;                            //===¼ÆËã×óÂÖµç»ú×îÖÕPWM
  	  	  Moto2=Balance_Pwm-Velocity_Pwm-Turn_Pwm;                            //===¼ÆËãÓÒÂÖµç»ú×îÖÕPWM
@@ -74,13 +74,14 @@ int EXTI9_5_IRQHandler(void)
 **************************************************************************/
 float AngleBias=0,AngleBiasLast=0,GyroBias=0,GyroBiasLast=0,GyroBiasIntegral=0;
 float AngleKp=-12,AngleKd=-40,GyroKp=-4,GyroKi=-0.8,GyroKd=-0.2;
-#define CascadePid 0
+#define CascadePid 1
+float AimAngle=-1.5;
 int balance(float Angle,float Gyro)
 {   
 	float AimGyro=0;
 	int balance;
 	//½Ç¶È»·
-	AngleBias=ZHONGZHI-Angle;       //===Çó³öÆ½ºâµÄ½Ç¶ÈÖĞÖµ ºÍ»úĞµÏà¹Ø
+	AngleBias=AimAngle-Angle;       //===Çó³öÆ½ºâµÄ½Ç¶ÈÖĞÖµ ºÍ»úĞµÏà¹Ø
 #if CascadePid
 	AimGyro=AngleKp*AngleBias+AngleKd*(AngleBias-AngleBiasLast);   //===¼ÆËãÆ½ºâ¿ØÖÆµÄµç»úPWM  PD¿ØÖÆ   kpÊÇPÏµÊı kdÊÇDÏµÊı 
 	//½ÇËÙ¶È»·
@@ -105,11 +106,11 @@ int balance(float Angle,float Gyro)
 ·µ»Ø  Öµ£ºËÙ¶È¿ØÖÆPWM
 ×÷    Õß£ºÆ½ºâĞ¡³µÖ®¼Ò
 **************************************************************************/
-int velocity(int encoder_left,int encoder_right)
+void velocity(int encoder_left,int encoder_right)
 {  
-     static float Velocity,Encoder_Least,Encoder,Movement;
+     static float Encoder_Least,Encoder,Movement;
 	  static float Encoder_Integral,Target_Velocity=0;
-	  float kp=-80,ki=-0.5;
+	  float kp=0,ki=0;//d=0.31
 	  //=============Ò£¿ØÇ°½øºóÍË²¿·Ö=======================// 
 	  //if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //Èç¹û½øÈë±ÜÕÏÄ£Ê½,×Ô¶¯½øÈëµÍËÙÄ£Ê½
     //else 	                         Target_Velocity=110;                 
@@ -119,16 +120,17 @@ int velocity(int encoder_left,int encoder_right)
 	  //if(Bi_zhang==1&&Distance<500&&Flag_Left!=1&&Flag_Right!=1)        //±ÜÕÏ±êÖ¾Î»ÖÃ1ÇÒ·ÇÒ£¿Ø×ªÍäµÄÊ±ºò£¬½øÈë±ÜÕÏÄ£Ê½
 	  //Movement=-Target_Velocity/Flag_sudu;
    //=============ËÙ¶ÈPI¿ØÖÆÆ÷=======================//	
-		Encoder_Least =(Encoder_Left+Encoder_Right)-0;                    //===»ñÈ¡×îĞÂËÙ¶ÈÆ«²î==²âÁ¿ËÙ¶È£¨×óÓÒ±àÂëÆ÷Ö®ºÍ£©-Ä¿±êËÙ¶È£¨´Ë´¦ÎªÁã£© 
-		Encoder *= 0.8;		                                                //===Ò»½×µÍÍ¨ÂË²¨Æ÷       
-		Encoder += Encoder_Least*0.2;	                                    //===Ò»½×µÍÍ¨ÂË²¨Æ÷    
-		Encoder_Integral +=Encoder;                                       //===»ı·Ö³öÎ»ÒÆ »ı·ÖÊ±¼ä£º10ms
-		Encoder_Integral=Encoder_Integral-Movement;                       //===½ÓÊÕÒ£¿ØÆ÷Êı¾İ£¬¿ØÖÆÇ°½øºóÍË
-		if(Encoder_Integral>10000)  	Encoder_Integral=10000;             //===»ı·ÖÏŞ·ù
-		if(Encoder_Integral<-10000)	Encoder_Integral=-10000;              //===»ı·ÖÏŞ·ù	
-		Velocity=Encoder*kp+Encoder_Integral*ki;                          //===ËÙ¶È¿ØÖÆ	
-		if(Turn_Off(Angle_Balance,Voltage)==1||Flag_Stop==1)   Encoder_Integral=0;      //===µç»ú¹Ø±ÕºóÇå³ı»ı·Ö
-	  return Velocity;
+	Encoder_Least =(Encoder_Left+Encoder_Right)-0;                    //===»ñÈ¡×îĞÂËÙ¶ÈÆ«²î==²âÁ¿ËÙ¶È£¨×óÓÒ±àÂëÆ÷Ö®ºÍ£©-Ä¿±êËÙ¶È£¨´Ë´¦ÎªÁã£© 
+	Encoder *= 0.8;		                                                //===Ò»½×µÍÍ¨ÂË²¨Æ÷       
+	Encoder += Encoder_Least*0.2;	                                    //===Ò»½×µÍÍ¨ÂË²¨Æ÷    
+	//if(Encoder_Least>0) LED=1;
+	//else LED=0;
+	Encoder_Integral +=Encoder;                                       //===»ı·Ö³öÎ»ÒÆ »ı·ÖÊ±¼ä£º10ms
+	//Encoder_Integral=Encoder_Integral-Movement;                       //===½ÓÊÕÒ£¿ØÆ÷Êı¾İ£¬¿ØÖÆÇ°½øºóÍË
+	if(Encoder_Integral>10000)  	Encoder_Integral=10000;             //===»ı·ÖÏŞ·ù
+	if(Encoder_Integral<-10000)	Encoder_Integral=-10000;              //===»ı·ÖÏŞ·ù	
+	AimAngle=Encoder*kp+Encoder_Integral*ki;                          //===ËÙ¶È¿ØÖÆ	
+	if(Turn_Off(Angle_Balance,Voltage)==1||Flag_Stop==1)   Encoder_Integral=0;      //===µç»ú¹Ø±ÕºóÇå³ı»ı·Ö
 }
 
 /**************************************************************************
