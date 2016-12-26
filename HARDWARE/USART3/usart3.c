@@ -43,9 +43,10 @@ void uart3_init(u32 pclk2,u32 bound)
 **************************************************************************/
 void USART3_IRQHandler(void)
 {	
-	if(USART3->SR&(1<<5))//接收到数据
+	///if(USART3->SR&(1<<5))//接收到数据
 	{	  
-	 static	int uart_receive=0;//蓝牙接收相关变量
+		//LED=!LED;
+	 /*static	int uart_receive=0;//蓝牙接收相关变量
 	 uart_receive=USART3->DR; 
 	 mode_data[0]=uart_receive;
 			if(mode_data[0]==six_data_start[0]			&&mode_data[1]==six_data_start[1]			&&mode_data[2]==six_data_start[2]			)
@@ -85,8 +86,8 @@ void USART3_IRQHandler(void)
 			else Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
   	}	
 		mode_data[2]=mode_data[1];
-		mode_data[1]=mode_data[0];
-	}  											 
+		mode_data[1]=mode_data[0];*/
+	} 											 
 } 
 
 

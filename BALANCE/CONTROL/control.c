@@ -61,7 +61,7 @@ int EXTI9_5_IRQHandler(void)
 			//if(Put_Down(Angle_Balance,Encoder_Left,Encoder_Right))              //===检查是否小车被放下
 			//Flag_Stop=0;	                                                      //===如果被放下就启动电机
       //if(Turn_Off(Angle_Balance,Voltage)==0)                              //===如果不存在异常
- 			Set_Pwm(Moto1,Moto2);                                               //===赋值给PWM寄存器  
+ 			//Set_Pwm(Moto1,Moto2);                                               //===赋值给PWM寄存器  
 	//}       	
 	 return 0;	  
 } 

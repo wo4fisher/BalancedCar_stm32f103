@@ -28,7 +28,7 @@ int main(void)
 	//KEY_Init();                     //=====按键初始化
 	//OLED_Init();                    //=====OLED初始化
 	//uart_init(72,128000);           //=====初始化串口1
-	//uart3_init(36,9600);            //=====串口3初始化
+	uart3_init(36,9600);            //=====串口3初始化
 	MiniBalance_PWM_Init(7199,0);   //=====初始化PWM 10KHZ，用于驱动电机 如需初始化电调接口 改为MiniBalance_PWM_Init(9999,35) 200HZ
 	Encoder_Init_TIM2();            //=====编码器接口
 	Encoder_Init_TIM4();            //=====初始化编码器2 
@@ -47,6 +47,8 @@ int main(void)
 			time=0;
 			//if(!motorEn)
 				LED=!LED;
+			USART3->DR=(int8_t)Angle_Balance;
+			while((USART3->SR & (1<<6))==0) ;
 			//printf("Moto1=%d\n",Moto1);
 			//printf("Moto2=%d\n",Moto2);
 			//printf("Angle_Balance=%.0f\n",Angle_Balance);
