@@ -1,24 +1,24 @@
-#include "sys.h"
+#include "include.h"
+
   /**************************************************************************
 平衡车
 **************************************************************************/
 
 int main(void)
 { 
-	u16 time=0;
 	Stm32_Clock_Init(9);            //=====系统时钟设置
 	delay_init(72);                 //=====延时初始化
 	delay_ms(2000);
-	//LED_Init();                     //=====初始化与 LED 连接的硬件接口
+	TIM3_Init();
+	LED_Init();                     //=====初始化与 LED 连接的硬件接口
 	uart_init(72,115200);           //=====初始化串口1
 	while(1)
-	{     
-		delay_ms(5);
-		if(++time==100)
+	{
+		if(Time500msFlag)
 		{
-			time=0;
-				LED=!LED;
-			//printf("A");
+			Time500msFlag=0;
+			LED=!LED;
+			printf("Running\n");
 
 		}	
 	} 

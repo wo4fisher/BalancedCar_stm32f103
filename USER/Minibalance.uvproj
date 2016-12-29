@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\HARDWARE\KEY;..\HARDWARE\OLED;..\HARDWARE\ADC;..\HARDWARE\TIMER;..\HARDWARE\MOTOR;..\BALANCE\CONTROL;..\HARDWARE\ENCODER;..\HARDWARE\IIC;..\BALANCE\CONTROL;..\BALANCE\DMP;..\BALANCE\filter;..\BALANCE\MPU6050;..\BALANCE\show;..\BALANCE\controls;..\HARDWARE\USART3;..\HARDWARE\EXTI;..\HARDWARE\DataScope_DP</IncludePath>
+              <IncludePath>..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE;..\BALANCE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -455,6 +455,18 @@
         </Group>
         <Group>
           <GroupName>HARDWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Timer.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>BALANCE</GroupName>

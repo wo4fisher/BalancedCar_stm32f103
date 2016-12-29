@@ -64,37 +64,15 @@
 
 #define FTIR   1  //下降沿触发
 #define RTIR   2  //上升沿触发
+
 #include "delay.h"
-#include "led.h"
-#include "key.h"
-#include "oled.h"
 #include "usart.h"
-#include "usart3.h"
-#include "adc.h"
-#include "timer.h"
-#include "motor.h"
-#include "encoder.h"
-#include "ioi2c.h"
-#include "mpu6050.h"
-#include "show.h"								   
-#include "exti.h"
-#include "DataScope_DP.h"
+
 //JTAG模式设置定义
 #define JTAG_SWD_DISABLE   0X02
 #define SWD_ENABLE         0X01
 #define JTAG_SWD_ENABLE    0X00	
-extern u8 Way_Angle;                                      //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
-extern int Encoder_Left,Encoder_Right;                     //左右编码器的脉冲计数
-extern int Moto1,Moto2;                                     //电机PWM变量 应是motor的 向moto致敬	
-extern u8 Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_sudu; //蓝牙遥控相关的变量
-extern u8 Flag_Stop,Flag_Show;                               //停止标志位和 显示标志位 默认停止 显示打开
-extern int Voltage,Voltage_Zheng,Voltage_Xiao;                //电池电压采样相关的变量
-extern float Angle_Balance,Gyro_Balance,Gyro_Turn;           //平衡倾角 平衡陀螺仪 转向陀螺仪
-extern float Show_Data_Mb;                                    //全局显示变量，用于显示需要查看的数据
-extern int Temperature;
-extern u32 Distance;                                           //超声波测距
-extern u8 Bi_zhang,delay_50,delay_flag;
-extern float Acceleration_Z;
+
 /////////////////////////////////////////////////////////////////  
 void Stm32_Clock_Init(u8 PLL);  //时钟初始化  
 void Sys_Soft_Reset(void);      //系统软复位
@@ -110,10 +88,7 @@ void WFI_SET(void);		//执行WFI指令
 void INTX_DISABLE(void);//关闭所有中断
 void INTX_ENABLE(void);	//开启所有中断
 void MSR_MSP(u32 addr);	//设置堆栈地址
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
-#include "dmpKey.h"
-#include "dmpmap.h"
+
 #include <string.h> 
 #include <stdio.h>
 #include <stdint.h>
