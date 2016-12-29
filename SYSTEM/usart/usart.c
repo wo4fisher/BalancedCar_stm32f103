@@ -21,8 +21,8 @@ int _sys_exit(int x)
 //重定义fputc函数 
 int fputc(int ch, FILE *f)
 {      
-/*	if(Flag_Show==0)
-	{	
+	/*//if(Flag_Show==0)
+	//{	
 	while((USART3->SR&0X40)==0);//Flag_Show=0  使用串口3   
 	USART3->DR = (u8) ch;      
 	}

@@ -28,4 +28,3 @@
 ..\obj\minibalance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\minibalance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\minibalance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-..\obj\minibalance.o: ..\BALANCE\CONTROL\control.h

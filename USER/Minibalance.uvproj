@@ -455,98 +455,9 @@
         </Group>
         <Group>
           <GroupName>HARDWARE</GroupName>
-          <Files>
-            <File>
-              <FileName>LED.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\LED\LED.C</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\OLED\oled.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\ADC\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\MOTOR\motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\ENCODER\encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>IOI2C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\IIC\IOI2C.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\USART3\usart3.c</FilePath>
-            </File>
-            <File>
-              <FileName>exti.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\EXTI\exti.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>BALANCE</GroupName>
-          <Files>
-            <File>
-              <FileName>control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\CONTROL\control.c</FilePath>
-            </File>
-            <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\filter\filter.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\MPU6050\MPU6050.c</FilePath>
-            </File>
-            <File>
-              <FileName>show.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\show\show.c</FilePath>
-            </File>
-            <File>
-              <FileName>DataScope_DP.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\DataScope_DP\DataScope_DP.C</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\DMP\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BALANCE\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>
