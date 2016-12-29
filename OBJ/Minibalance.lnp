@@ -6,6 +6,8 @@
 "..\obj\usart.o"
 "..\obj\led.o"
 "..\obj\timer.o"
+"..\obj\i2c.o"
+"..\obj\mpu6050.o"
 --strict --scatter "..\OBJ\Minibalance.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

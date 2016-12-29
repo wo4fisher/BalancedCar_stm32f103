@@ -1,4 +1,5 @@
 ..\obj\timer.o: ..\HARDWARE\Timer.c
+..\obj\timer.o: ..\HARDWARE\Timer.h
 ..\obj\timer.o: ..\SYSTEM\sys\include.h
 ..\obj\timer.o: ..\SYSTEM\sys\sys.h
 ..\obj\timer.o: ..\SYSTEM\sys\stm32f10x.h
@@ -14,4 +15,6 @@
 ..\obj\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\timer.o: ..\HARDWARE\Led.h
 ..\obj\timer.o: ..\HARDWARE\Timer.h
+..\obj\timer.o: ..\HARDWARE\I2c.h
 ..\obj\timer.o: ..\SYSTEM\sys\include.h
+..\obj\timer.o: ..\HARDWARE\Mpu6050.h

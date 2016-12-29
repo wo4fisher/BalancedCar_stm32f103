@@ -12,12 +12,16 @@ int main(void)
 	TIM3_Init();
 	LED_Init();                     //=====初始化与 LED 连接的硬件接口
 	uart_init(72,115200);           //=====初始化串口1
+	i2cInit();
+	delay_ms(100);
+	MPU_Init();
 	while(1)
 	{
 		if(Time500msFlag)
 		{
 			Time500msFlag=0;
 			LED=!LED;
+			Get_MPUdata();
 			printf("Running\n");
 
 		}	

@@ -4,6 +4,8 @@
 #include "sys.h"
 #include "Led.h"
 #include "Timer.h"
+#include "I2c.h"
+#include "Mpu6050.h"
 
 #endif
 

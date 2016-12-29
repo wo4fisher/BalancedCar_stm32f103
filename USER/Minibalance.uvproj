@@ -466,6 +466,16 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\Timer.c</FilePath>
             </File>
+            <File>
+              <FileName>I2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\I2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>Mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Mpu6050.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

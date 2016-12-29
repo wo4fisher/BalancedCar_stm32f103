@@ -15,3 +15,5 @@
 ..\obj\minibalance.o: ..\HARDWARE\Led.h
 ..\obj\minibalance.o: ..\HARDWARE\Timer.h
 ..\obj\minibalance.o: ..\SYSTEM\sys\include.h
+..\obj\minibalance.o: ..\HARDWARE\I2c.h
+..\obj\minibalance.o: ..\HARDWARE\Mpu6050.h
