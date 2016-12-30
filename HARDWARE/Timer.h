@@ -6,7 +6,7 @@
 extern u8 Time5msFlag;
 extern u8 Time500msFlag;
 
-extern void TIM3_Init(void);
-void TIM3_IRQHandler(void);
+extern void TIM1_Init(void);
+void TIM1_UP_IRQHandler(void);
 
 #endif

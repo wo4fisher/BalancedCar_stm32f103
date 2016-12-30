@@ -9,10 +9,10 @@ int main(void)
 	Stm32_Clock_Init(9);            //=====系统时钟设置
 	delay_init(72);                 //=====延时初始化
 	delay_ms(2000);
-	TIM3_Init();
+	TIM1_Init();
 	LED_Init();                     //=====初始化与 LED 连接的硬件接口
 	uart_init(72,115200);           //=====初始化串口1
-	i2cInit();
+	IIC_Init();
 	delay_ms(100);
 	MPU_Init();
 	while(1)
