@@ -27,6 +27,49 @@ uint32_t  SpeedParamMin[SPEED_MENU_LEN]={0,0,0,0,0};
 uint32_t  SpeedParamMax[SPEED_MENU_LEN]={1200,512,2048,200,200};
 uint32_t  SpeedParamAdj[SPEED_MENU_LEN]={10,8,32,5,5};
 
+void Show_Angle(void)
+{
+	u8 tmp;
+	if(RTAngle>=0)
+	{
+		LCD5110_write_english_string(0,0,"*Angle*:");
+		LCD5110_Write_Num(48,0,(int16_t)(RTAngle));
+		if(RTAngle<10)
+		{
+			LCD5110_write_english_string(54,0,".");
+			tmp=(int16_t)(RTAngle*10)%10;
+			LCD5110_Write_Num(60,0,tmp);
+			LCD5110_write_english_string(66,0,"  ");
+		}
+		else
+		{
+			LCD5110_write_english_string(60,0,".");
+			tmp=(int16_t)(RTAngle*10)%10;
+			LCD5110_Write_Num(66,0,tmp);
+			LCD5110_write_english_string(72,0," ");
+		}
+	}
+	else
+	{
+		LCD5110_write_english_string(0,0,"*Angle*:-");
+		LCD5110_Write_Num(54,0,(int16_t)(-RTAngle));
+		if(RTAngle>-10)
+		{
+			LCD5110_write_english_string(60,0,".");
+			tmp=(int16_t)(-RTAngle*10)%10;
+			LCD5110_Write_Num(66,0,tmp);
+			LCD5110_write_english_string(72,0," ");
+		}
+		else
+		{
+			LCD5110_write_english_string(66,0,".");
+			tmp=(int16_t)(-RTAngle*10)%10;
+			LCD5110_Write_Num(72,0,tmp);
+			LCD5110_write_english_string(78,0,"");
+		}
+	}
+}
+
 void main_window_proc(void)
 {
     uint8_t i=0;
@@ -53,7 +96,7 @@ void main_window_proc(void)
         break;
       default:
         {
-            LCD5110_write_english_string(0,0,">>Mian Menu<<");
+			Show_Angle();
             for(i=0;i<MAIN_MENU_LEN;i++)
             {
               LCD5110_write_english_string(6,i+1,MainMenuStrings[i]);
@@ -191,6 +234,7 @@ void direction_window_proc(void)
 
 void display_proc(void)
 {
+	//LCD5110_clear();
     KeyMenuTable[keymenu_curr_state].WindowProc();
 }
 

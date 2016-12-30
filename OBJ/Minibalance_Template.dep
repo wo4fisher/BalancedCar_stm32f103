@@ -1,6 +1,6 @@
 Dependencies for Project 'Minibalance', Target 'Template': (DO NOT MODIFY !)
 F (.\startup_stm32f10x_md.s)(0x585142F7)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x--pd "__UVISION_VERSION SETA 520"--list ..\obj\startup_stm32f10x_md.lst --xref -o ..\obj\startup_stm32f10x_md.o --depend ..\obj\startup_stm32f10x_md.d)
-F (.\Minibalance.c)(0x58664E6D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\minibalance.o --omf_browse ..\obj\minibalance.crf --depend ..\obj\minibalance.d)
+F (.\Minibalance.c)(0x58667652)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\minibalance.o --omf_browse ..\obj\minibalance.crf --depend ..\obj\minibalance.d)
 I (..\SYSTEM\sys\include.h)(0x58664407)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
 I (..\SYSTEM\sys\stm32f10x.h)(0x585142F7)
@@ -159,7 +159,7 @@ I (..\BALANCE\Imu.h)(0x5866258A)
 I (..\BALANCE\Control.h)(0x586621E3)
 I (..\HARDWARE\LCD5110.h)(0x58664823)
 I (..\HARDWARE\iMenu.h)(0x586644F7)
-F (..\HARDWARE\LCD5110.c)(0x586648E7)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\lcd5110.o --omf_browse ..\obj\lcd5110.crf --depend ..\obj\lcd5110.d)
+F (..\HARDWARE\LCD5110.c)(0x58666A3E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\lcd5110.o --omf_browse ..\obj\lcd5110.crf --depend ..\obj\lcd5110.d)
 I (..\HARDWARE\LCD5110.h)(0x58664823)
 I (..\SYSTEM\sys\include.h)(0x58664407)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
@@ -181,7 +181,7 @@ I (..\BALANCE\Imu.h)(0x5866258A)
 I (..\HARDWARE\Motor.h)(0x58661C6C)
 I (..\BALANCE\Control.h)(0x586621E3)
 I (..\HARDWARE\iMenu.h)(0x586644F7)
-F (..\HARDWARE\iMenu.c)(0x586644D5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imenu.o --omf_browse ..\obj\imenu.crf --depend ..\obj\imenu.d)
+F (..\HARDWARE\iMenu.c)(0x58667F56)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imenu.o --omf_browse ..\obj\imenu.crf --depend ..\obj\imenu.d)
 I (..\HARDWARE\iMenu.h)(0x586644F7)
 I (..\SYSTEM\sys\include.h)(0x58664407)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
@@ -203,7 +203,7 @@ I (..\BALANCE\Imu.h)(0x5866258A)
 I (..\HARDWARE\Motor.h)(0x58661C6C)
 I (..\BALANCE\Control.h)(0x586621E3)
 I (..\HARDWARE\LCD5110.h)(0x58664823)
-F (..\BALANCE\Imu.c)(0x58663EA9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imu.o --omf_browse ..\obj\imu.crf --depend ..\obj\imu.d)
+F (..\BALANCE\Imu.c)(0x586655F9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imu.o --omf_browse ..\obj\imu.crf --depend ..\obj\imu.d)
 I (..\BALANCE\Imu.h)(0x5866258A)
 I (..\SYSTEM\sys\include.h)(0x58664407)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)

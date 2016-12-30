@@ -35,6 +35,6 @@ int main(void)
 			Get_RT_Att();
 			Car_Control();
 		}
-		//display_proc();
+		display_proc();
 	} 
 }
