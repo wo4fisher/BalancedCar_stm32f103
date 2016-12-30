@@ -17,7 +17,6 @@ void MPU_Init(void)
     MPU6050_WR(0x1B, &value);   //陀螺仪量程+-1000度/s
     value=0x18;
     MPU6050_WR(0x1C, &value);   //加速度计量程+-16g
-    
     value=0x02;
     MPU6050_WR(0x37,&value); 
     value=0x00;
@@ -46,5 +45,5 @@ void Get_MPUdata(void)
     accel_Xdata_raw=MPU6050_GetDoubleData(0x3B,&value);
     accel_Zdata_raw=MPU6050_GetDoubleData(0x3F,&value);
     gyro_Ydata_raw=MPU6050_GetDoubleData(0x45,&value);
-    printf("gy=%d  \n",gyro_Ydata_raw);
+    //printf("gy=%d  \n",gyro_Ydata_raw);
 }

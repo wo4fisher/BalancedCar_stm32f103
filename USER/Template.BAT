@@ -12,5 +12,6 @@ SET CPU_CLOCK=0x007A1200
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\timer.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\i2c.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\mpu6050.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\imu.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via "..\OBJ\Minibalance.lnp"
 "C:\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" "..\OBJ\Minibalance.axf" --i32combined --output "..\OBJ\Minibalance.hex"

@@ -480,6 +480,13 @@
         </Group>
         <Group>
           <GroupName>BALANCE</GroupName>
+          <Files>
+            <File>
+              <FileName>Imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BALANCE\Imu.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

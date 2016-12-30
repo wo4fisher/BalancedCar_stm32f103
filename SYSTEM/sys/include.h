@@ -6,6 +6,7 @@
 #include "Timer.h"
 #include "I2c.h"
 #include "Mpu6050.h"
+#include "Imu.h"
 
 #endif
 

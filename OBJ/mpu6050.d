@@ -18,3 +18,4 @@
 ..\obj\mpu6050.o: ..\SYSTEM\sys\include.h
 ..\obj\mpu6050.o: ..\HARDWARE\I2c.h
 ..\obj\mpu6050.o: ..\HARDWARE\Mpu6050.h
+..\obj\mpu6050.o: ..\BALANCE\Imu.h

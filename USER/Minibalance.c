@@ -21,9 +21,12 @@ int main(void)
 		{
 			Time500msFlag=0;
 			LED=!LED;
-			Get_MPUdata();
-			printf("Running\n");
-
+			//printf("Running\n");
 		}	
+		if(Time5msFlag)
+		{
+			Time5msFlag=0;
+			Get_RT_Att();
+		}
 	} 
 }

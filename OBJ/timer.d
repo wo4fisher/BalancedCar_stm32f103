@@ -18,3 +18,4 @@
 ..\obj\timer.o: ..\HARDWARE\I2c.h
 ..\obj\timer.o: ..\SYSTEM\sys\include.h
 ..\obj\timer.o: ..\HARDWARE\Mpu6050.h
+..\obj\timer.o: ..\BALANCE\Imu.h
