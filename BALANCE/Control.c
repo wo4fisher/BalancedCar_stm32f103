@@ -27,18 +27,18 @@ int16_t Balance_Control(float Angle,float Gyro)
 	//赋值给变量
 	AngleBiasLast=AngleBias,GyroBias=GyroBiasLast;
 #else
-	AngleKp=-300,AngleKd=0;
+	AngleKp=-360,AngleKd=36;
 	balance=AngleKp*AngleBias+AngleKd*Gyro;
 #endif
 	return balance;
 }
 
-#define DIFFERENCE 0
+#define DIFFERENCE 18
 void Xianfu_Pwm(void)
 {	
 	  int Amplitude=6900;    //===PWM满幅是7200 限制在6900
-	  MotorL-=DIFFERENCE;  //DIFFERENCE是一个衡量平衡小车电机和机械安装差异的一个变量。直接作用于输出，让小车具有更好的一致性。
-	  MotorR+=DIFFERENCE;
+	  MotorL+=DIFFERENCE;  //DIFFERENCE是一个衡量平衡小车电机和机械安装差异的一个变量。直接作用于输出，让小车具有更好的一致性。
+	  MotorR-=DIFFERENCE;
     if(MotorL<-Amplitude) MotorL=-Amplitude;	
 		if(MotorL>Amplitude)  MotorL=Amplitude;	
 	  if(MotorR<-Amplitude) MotorR=-Amplitude;	

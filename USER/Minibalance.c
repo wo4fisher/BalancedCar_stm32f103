@@ -17,7 +17,7 @@ int main(void)
 	delay_ms(500);
 	Motor_PWM_Init(7200-1,0);
 	TIM1_Init();
-	Get_Angle_Init();
+	//Get_Angle_Init();
 	while(1)
 	{
 		if(Time500msFlag)
