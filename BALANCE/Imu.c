@@ -13,8 +13,8 @@ void Get_RT_Att(void)
 	if(AngleAccelXZ<-90)
 		AngleAccelXZ=-90.00;
 	Kalman_Filter(AngleAccelXZ,-gyro_Ydata_raw);
-	SendArr[0]=(int8_t)AngleAccelXZ,SendArr[1]=(int8_t)RTAngle,SendArr[2]=(int8_t)RTGyro;
-	vcan_sendware((u8 *)SendArr,2);
+	//SendArr[0]=(int8_t)AngleAccelXZ,SendArr[1]=(int8_t)RTAngle,SendArr[2]=(int8_t)RTGyro;
+	//vcan_sendware((u8 *)SendArr,2);
 }
 
 /*---------------¿¨¶ûÂüÂË²¨--------------------*/
@@ -83,9 +83,9 @@ void vcan_sendware(u8 *wareaddr, u32 waresize)
     usart1_sendbuff(cmdr, sizeof(cmdr));    
 }
 
-void Get_Angle_Init(void)
+/*void Get_Angle_Init(void)
 {
 	Get_RT_Att();
 	RTAngle=AngleAccelXZ;
-}
+}*/
 

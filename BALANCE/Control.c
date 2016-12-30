@@ -4,16 +4,21 @@ int16_t BalancePwm;
 int16_t MotorL=0,MotorR=0;
 
 /*--------------直立控制-----------------------*/
-float AngleBias=0,AngleBiasLast=0,GyroBias=0,GyroBiasLast=0,GyroBiasIntegral=0;
-float AngleKp=0,AngleKd=0,GyroKp=0,GyroKi=0,GyroKd=0;
+float AngleBias=0,AngleBiasLast=0,AngleBiasIntegral=0,GyroBias=0,GyroBiasLast=0,GyroBiasIntegral=0;
+float AngleKp=3,AngleKi=0,AngleKd=0,GyroKp=-50,GyroKi=-2.8,GyroKd=30;
 #define CascadePid 0
-float AimAngle=6.5;
+float AimAngle=6.4;
 int16_t Balance_Control(float Angle,float Gyro)
 {   
 	float AimGyro=0;
 	int16_t balance;
 	//角度环
 	AngleBias=AimAngle-Angle;       //===求出平衡的角度中值 和机械相关
+	AngleBiasIntegral+=AngleBias;
+	if(AngleBiasIntegral>1000)    //积分限幅
+		AngleBiasIntegral=1000;
+	if(AngleBiasIntegral<-1000)
+		AngleBiasIntegral=-1000;
 #if CascadePid
 	AimGyro=AngleKp*AngleBias+AngleKd*(AngleBias-AngleBiasLast);   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
 	//角速度环
@@ -27,8 +32,8 @@ int16_t Balance_Control(float Angle,float Gyro)
 	//赋值给变量
 	AngleBiasLast=AngleBias,GyroBias=GyroBiasLast;
 #else
-	AngleKp=-360,AngleKd=36;
-	balance=AngleKp*AngleBias+AngleKd*Gyro;
+	AngleKp=-360,AngleKi=0,AngleKd=28;
+	balance=AngleKp*AngleBias+AngleKi*AngleBiasIntegral+AngleKd*Gyro;
 #endif
 	return balance;
 }
