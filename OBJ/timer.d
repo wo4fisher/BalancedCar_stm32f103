@@ -19,3 +19,5 @@
 ..\obj\timer.o: ..\SYSTEM\sys\include.h
 ..\obj\timer.o: ..\HARDWARE\Mpu6050.h
 ..\obj\timer.o: ..\BALANCE\Imu.h
+..\obj\timer.o: ..\HARDWARE\Motor.h
+..\obj\timer.o: ..\BALANCE\Control.h

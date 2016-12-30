@@ -18,3 +18,5 @@
 ..\obj\minibalance.o: ..\HARDWARE\I2c.h
 ..\obj\minibalance.o: ..\HARDWARE\Mpu6050.h
 ..\obj\minibalance.o: ..\BALANCE\Imu.h
+..\obj\minibalance.o: ..\HARDWARE\Motor.h
+..\obj\minibalance.o: ..\BALANCE\Control.h

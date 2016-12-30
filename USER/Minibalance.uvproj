@@ -476,6 +476,11 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\Mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Motor.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -485,6 +490,11 @@
               <FileName>Imu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BALANCE\Imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>Control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BALANCE\Control.c</FilePath>
             </File>
           </Files>
         </Group>

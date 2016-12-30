@@ -8,6 +8,7 @@
 extern float RTAngle,RTGyro;
 
 extern void Get_RT_Att(void);
+extern void Get_Angle_Init(void);
 void Kalman_Filter(float angleACC, int16_t gyro);
 void vcan_sendware(u8 *wareaddr, u32 waresize);
 

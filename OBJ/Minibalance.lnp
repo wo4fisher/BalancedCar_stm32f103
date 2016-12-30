@@ -8,7 +8,9 @@
 "..\obj\timer.o"
 "..\obj\i2c.o"
 "..\obj\mpu6050.o"
+"..\obj\motor.o"
 "..\obj\imu.o"
+"..\obj\control.o"
 --strict --scatter "..\OBJ\Minibalance.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

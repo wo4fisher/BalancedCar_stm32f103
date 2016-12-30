@@ -83,3 +83,9 @@ void vcan_sendware(u8 *wareaddr, u32 waresize)
     usart1_sendbuff(cmdr, sizeof(cmdr));    
 }
 
+void Get_Angle_Init(void)
+{
+	Get_RT_Att();
+	RTAngle=AngleAccelXZ;
+}
+

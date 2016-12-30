@@ -19,3 +19,5 @@
 ..\obj\mpu6050.o: ..\HARDWARE\I2c.h
 ..\obj\mpu6050.o: ..\HARDWARE\Mpu6050.h
 ..\obj\mpu6050.o: ..\BALANCE\Imu.h
+..\obj\mpu6050.o: ..\HARDWARE\Motor.h
+..\obj\mpu6050.o: ..\BALANCE\Control.h
