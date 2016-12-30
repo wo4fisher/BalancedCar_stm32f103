@@ -21,3 +21,5 @@
 ..\obj\mpu6050.o: ..\BALANCE\Imu.h
 ..\obj\mpu6050.o: ..\HARDWARE\Motor.h
 ..\obj\mpu6050.o: ..\BALANCE\Control.h
+..\obj\mpu6050.o: ..\HARDWARE\LCD5110.h
+..\obj\mpu6050.o: ..\HARDWARE\iMenu.h

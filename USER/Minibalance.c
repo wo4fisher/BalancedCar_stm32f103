@@ -11,12 +11,15 @@ int main(void)
 	delay_ms(1000);
 	LED_Init();                     //=====初始化与 LED 连接的硬件接口
 	uart_init(72,115200);           //=====初始化串口1
+	LCD5110_init();
 	IIC_Init();
 	delay_ms(100);
 	MPU_Init();
 	delay_ms(500);
 	Motor_PWM_Init(7200-1,0);
 	TIM1_Init();
+	LCD5110_clear();
+	main_window_proc();
 	//Get_Angle_Init();
 	while(1)
 	{
@@ -32,5 +35,6 @@ int main(void)
 			Get_RT_Att();
 			Car_Control();
 		}
+		//display_proc();
 	} 
 }

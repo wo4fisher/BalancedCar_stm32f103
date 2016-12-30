@@ -9,6 +9,8 @@
 "..\obj\i2c.o"
 "..\obj\mpu6050.o"
 "..\obj\motor.o"
+"..\obj\lcd5110.o"
+"..\obj\imenu.o"
 "..\obj\imu.o"
 "..\obj\control.o"
 --strict --scatter "..\OBJ\Minibalance.sct"

@@ -21,3 +21,5 @@
 ..\obj\i2c.o: ..\BALANCE\Imu.h
 ..\obj\i2c.o: ..\HARDWARE\Motor.h
 ..\obj\i2c.o: ..\BALANCE\Control.h
+..\obj\i2c.o: ..\HARDWARE\LCD5110.h
+..\obj\i2c.o: ..\HARDWARE\iMenu.h

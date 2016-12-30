@@ -20,3 +20,5 @@
 ..\obj\minibalance.o: ..\BALANCE\Imu.h
 ..\obj\minibalance.o: ..\HARDWARE\Motor.h
 ..\obj\minibalance.o: ..\BALANCE\Control.h
+..\obj\minibalance.o: ..\HARDWARE\LCD5110.h
+..\obj\minibalance.o: ..\HARDWARE\iMenu.h

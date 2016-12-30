@@ -481,6 +481,16 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\Motor.c</FilePath>
             </File>
+            <File>
+              <FileName>LCD5110.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\LCD5110.c</FilePath>
+            </File>
+            <File>
+              <FileName>iMenu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\iMenu.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

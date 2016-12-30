@@ -9,6 +9,8 @@
 #include "Imu.h"
 #include "Motor.h"
 #include "Control.h"
+#include "LCD5110.h"
+#include "iMenu.h"
 
 #endif
 
