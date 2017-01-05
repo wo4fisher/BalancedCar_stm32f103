@@ -15,6 +15,7 @@ SET CPU_CLOCK=0x007A1200
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\motor.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\lcd5110.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\imenu.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\encoder.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\imu.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "..\obj\control.__i"
 "C:\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via "..\OBJ\Minibalance.lnp"

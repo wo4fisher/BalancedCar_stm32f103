@@ -7,6 +7,7 @@
 int main(void)
 { 
 	int16_t i;
+	u8 BanlanceControlFlag=0;
 	Stm32_Clock_Init(9);            //=====系统时钟设置
 	delay_init(72);                 //=====延时初始化
 	delay_ms(500);
@@ -19,6 +20,7 @@ int main(void)
 	MPU_Init();
 	Motor_PWM_Init(7200-1,0);
 	TIM1_Init();
+	Encoder_Init();
 	i=400;
 	while(i)
 	{
@@ -47,8 +49,10 @@ int main(void)
 		if(Time5msFlag)
 		{
 			Time5msFlag=0;
+			BanlanceControlFlag = !BanlanceControlFlag;
 			Get_RT_Att();
-			Car_Control();
+			if(BanlanceControlFlag)
+				Car_Control();
 		}
 		display_proc();
 	} 

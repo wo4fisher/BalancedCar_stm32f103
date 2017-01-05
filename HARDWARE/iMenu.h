@@ -13,6 +13,7 @@ typedef struct
 }
 KeyMenuTableStruct;
 
+#define Show_Debug_Info 1
 
 void main_window_proc(void);
 void run_window_proc(void);

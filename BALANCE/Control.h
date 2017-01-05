@@ -3,6 +3,8 @@
 
 #include "include.h"
 
+extern int EncoderLeft,EncoderRight;
+
 extern void Car_Control(void);
 
 #endif

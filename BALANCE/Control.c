@@ -1,13 +1,14 @@
 #include "Control.h"
 
+int EncoderLeft=0,EncoderRight=0;
 int16_t BalancePwm;
 int16_t MotorL=0,MotorR=0;
 
 /*--------------直立控制-----------------------*/
 float AngleBias=0,AngleBiasLast=0,AngleBiasIntegral=0,GyroBias=0,GyroBiasLast=0,GyroBiasIntegral=0;
-float AngleKp=3,AngleKi=0,AngleKd=0,GyroKp=-50,GyroKi=-2.8,GyroKd=30;
-#define CascadePid 0
-float AimAngle=6.4;
+float AngleKp=4,AngleKi=0,AngleKd=-1,GyroKp=-36,GyroKi=-4.2,GyroKd=14;
+#define CascadePid 1
+float AimAngle=6.2; 
 int16_t Balance_Control(float Angle,float Gyro)
 {   
 	float AimGyro=0;
@@ -32,7 +33,7 @@ int16_t Balance_Control(float Angle,float Gyro)
 	//赋值给变量
 	AngleBiasLast=AngleBias,GyroBias=GyroBiasLast;
 #else
-	AngleKp=-360,AngleKi=0,AngleKd=28;
+	AngleKp=-460,AngleKi=0,AngleKd=30;
 	balance=AngleKp*AngleBias+AngleKi*AngleBiasIntegral+AngleKd*Gyro;
 #endif
 	return balance;
@@ -62,6 +63,8 @@ void Set_Pwm(int16_t ml,int16_t mr)
 void Car_Control(void)
 {
 	BalancePwm=Balance_Control(RTAngle,RTGyro);
+	EncoderLeft=-Read_Encoder(EncoderLeftTim);
+	EncoderRight=Read_Encoder(EncoderRightTim);
 	MotorL=BalancePwm;
 	MotorR=BalancePwm;
 	Xianfu_Pwm();

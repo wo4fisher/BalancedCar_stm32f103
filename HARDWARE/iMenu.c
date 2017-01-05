@@ -27,7 +27,7 @@ uint32_t  SpeedParamMin[SPEED_MENU_LEN]={0,0,0,0,0};
 uint32_t  SpeedParamMax[SPEED_MENU_LEN]={1200,512,2048,200,200};
 uint32_t  SpeedParamAdj[SPEED_MENU_LEN]={10,8,32,5,5};
 
-void Show_Angle(void)
+void Show_Debug(void)
 {
 	u8 tmp;
 	if(RTAngle>=0)
@@ -68,6 +68,44 @@ void Show_Angle(void)
 			LCD5110_write_english_string(78,0,"");
 		}
 	}
+#if Show_Debug_Info
+	if(EncoderLeft>=0)
+	{
+		LCD5110_write_english_string(0,1,"VLeft:");
+		LCD5110_Write_Num(36,1,EncoderLeft);
+		if(EncoderLeft<10)
+			LCD5110_write_english_string(42,1,"   ");
+		else if(EncoderLeft<100)
+			LCD5110_write_english_string(48,1,"  ");
+	}
+	else
+	{
+		LCD5110_write_english_string(0,1,"VLeft:-");
+		LCD5110_Write_Num(42,1,-EncoderLeft);
+		if(EncoderLeft>-10)
+			LCD5110_write_english_string(48,1,"   ");
+		else if(EncoderLeft>-100)
+			LCD5110_write_english_string(54,1,"  ");
+	}
+	if(EncoderRight>=0)
+	{
+		LCD5110_write_english_string(0,2,"VRight:");
+		LCD5110_Write_Num(42,2,EncoderRight);
+		if(EncoderRight<10)
+			LCD5110_write_english_string(48,1,"   ");
+		else if(EncoderRight<100)
+			LCD5110_write_english_string(54,1,"  ");
+	}
+	else
+	{
+		LCD5110_write_english_string(0,2,"VRight:-");
+		LCD5110_Write_Num(48,2,-EncoderRight);
+		if(EncoderRight>-10)
+			LCD5110_write_english_string(54,1,"   ");
+		else if(EncoderRight>-100)
+			LCD5110_write_english_string(60,1,"  ");
+	}
+#endif
 }
 
 void main_window_proc(void)
@@ -96,7 +134,8 @@ void main_window_proc(void)
         break;
       default:
         {
-			Show_Angle();
+			Show_Debug();
+			#if !Show_Debug_Info
             for(i=0;i<MAIN_MENU_LEN;i++)
             {
               LCD5110_write_english_string(6,i+1,MainMenuStrings[i]);
@@ -108,6 +147,7 @@ void main_window_proc(void)
               else
                     LCD5110_write_english_string(0,i+1," ");
             }
+			#endif
         }
         break;
     }

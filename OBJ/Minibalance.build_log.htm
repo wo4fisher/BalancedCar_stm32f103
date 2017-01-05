@@ -43,15 +43,19 @@ compiling LCD5110.c...
    
 ..\HARDWARE\LCD5110.c: 1 warning, 0 errors
 compiling iMenu.c...
+..\HARDWARE\iMenu.c(113): warning:  #177-D: variable "i" was declared but never referenced
+      uint8_t i=0;
+..\HARDWARE\iMenu.c: 1 warning, 0 errors
+compiling Encoder.c...
+..\HARDWARE\Encoder.c(82): warning:  #1-D: last line of file ends without a newline
+  }
+..\HARDWARE\Encoder.c: 1 warning, 0 errors
 compiling Imu.c...
 compiling Control.c...
-..\BALANCE\Control.c(13): warning:  #177-D: variable "AimGyro" was declared but never referenced
-        float AimGyro=0;
-..\BALANCE\Control.c: 1 warning, 0 errors
 linking...
-Program Size: Code=13220 RO-data=532 RW-data=1748 ZI-data=1668  
+Program Size: Code=14220 RO-data=532 RW-data=1756 ZI-data=1668  
 FromELF: creating hex file...
-"..\OBJ\Minibalance.axf" - 0 Error(s), 2 Warning(s).
+"..\OBJ\Minibalance.axf" - 0 Error(s), 3 Warning(s).
 Build Time Elapsed:  00:00:05
 </pre>
 </body>

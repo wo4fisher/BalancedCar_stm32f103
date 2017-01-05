@@ -23,3 +23,4 @@
 ..\obj\mpu6050.o: ..\BALANCE\Control.h
 ..\obj\mpu6050.o: ..\HARDWARE\LCD5110.h
 ..\obj\mpu6050.o: ..\HARDWARE\iMenu.h
+..\obj\mpu6050.o: ..\HARDWARE\Encoder.h

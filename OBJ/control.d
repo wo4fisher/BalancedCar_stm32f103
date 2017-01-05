@@ -23,3 +23,4 @@
 ..\obj\control.o: ..\BALANCE\Control.h
 ..\obj\control.o: ..\HARDWARE\LCD5110.h
 ..\obj\control.o: ..\HARDWARE\iMenu.h
+..\obj\control.o: ..\HARDWARE\Encoder.h

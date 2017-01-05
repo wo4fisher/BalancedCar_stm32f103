@@ -11,6 +11,7 @@
 "..\obj\motor.o"
 "..\obj\lcd5110.o"
 "..\obj\imenu.o"
+"..\obj\encoder.o"
 "..\obj\imu.o"
 "..\obj\control.o"
 --strict --scatter "..\OBJ\Minibalance.sct"

@@ -11,6 +11,7 @@
 #include "Control.h"
 #include "LCD5110.h"
 #include "iMenu.h"
+#include "Encoder.h"
 
 #endif
 
