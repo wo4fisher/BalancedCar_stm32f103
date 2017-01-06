@@ -18,9 +18,9 @@ void Get_RT_Att(void)
 }
 
 /*---------------¿¨¶ûÂüÂË²¨--------------------*/
-#define Q_angle    0.001//0.00000005
-#define Q_gyro	   0.005//0.00000001
-#define R_angle    0.5//0.0001
+#define Q_angle    0.00000005
+#define Q_gyro	   0.00000001
+#define R_angle    0.0001
 #define dt         0.005
 #define Rgyro   0.505f
 

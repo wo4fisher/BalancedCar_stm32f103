@@ -92,18 +92,18 @@ void Show_Debug(void)
 		LCD5110_write_english_string(0,2,"VRight:");
 		LCD5110_Write_Num(42,2,EncoderRight);
 		if(EncoderRight<10)
-			LCD5110_write_english_string(48,1,"   ");
+			LCD5110_write_english_string(48,2,"   ");
 		else if(EncoderRight<100)
-			LCD5110_write_english_string(54,1,"  ");
+			LCD5110_write_english_string(54,2,"  ");
 	}
 	else
 	{
 		LCD5110_write_english_string(0,2,"VRight:-");
 		LCD5110_Write_Num(48,2,-EncoderRight);
 		if(EncoderRight>-10)
-			LCD5110_write_english_string(54,1,"   ");
+			LCD5110_write_english_string(54,2,"   ");
 		else if(EncoderRight>-100)
-			LCD5110_write_english_string(60,1,"  ");
+			LCD5110_write_english_string(60,2,"  ");
 	}
 #endif
 }
