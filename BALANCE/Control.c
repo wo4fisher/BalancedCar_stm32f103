@@ -1,12 +1,13 @@
 #include "Control.h"
 
 int EncoderLeft=0,EncoderRight=0;
-int16_t BalancePwm;
+int16_t BalancePwm,VelocityPwm;
 int16_t MotorL=0,MotorR=0;
 
 /*--------------直立控制-----------------------*/
 float AngleBias=0,AngleBiasLast=0,AngleBiasIntegral=0,GyroBias=0,GyroBiasLast=0,GyroBiasIntegral=0;
-float AngleKp=4,AngleKi=0,AngleKd=-1,GyroKp=-36,GyroKi=-4.2,GyroKd=14;
+float AngleKp=4,AngleKi=0,AngleKd=0,GyroKp=-36,GyroKi=-4.2,GyroKd=14;
+//float AngleKp=0,AngleKi=0,AngleKd=0,GyroKp=0,GyroKi=0,GyroKd=0;
 #define CascadePid 1
 float AimAngle=6.2; 
 int16_t Balance_Control(float Angle,float Gyro)
@@ -33,10 +34,26 @@ int16_t Balance_Control(float Angle,float Gyro)
 	//赋值给变量
 	AngleBiasLast=AngleBias,GyroBias=GyroBiasLast;
 #else
-	AngleKp=-460,AngleKi=0,AngleKd=30;
+	AngleKp=-300,AngleKi=0,AngleKd=22;
 	balance=AngleKp*AngleBias+AngleKi*AngleBiasIntegral+AngleKd*Gyro;
 #endif
 	return balance;
+}
+
+int AimSpeed=0,EncoderBias,EncoderBiasIntegral;
+float VelocityKp=14,VelocityKi=0.4;
+int velocity(int encoder_left,int encoder_right)
+{
+	float Velocity=0,EncoderTotal=0;
+	EncoderTotal=encoder_left + encoder_right;
+	EncoderBias=EncoderTotal-AimSpeed;
+	EncoderBiasIntegral+=EncoderBias;
+	if(EncoderBiasIntegral>10000)
+		EncoderBiasIntegral=10000;
+	if(EncoderBiasIntegral<-10000)
+		EncoderBiasIntegral=-10000;
+	Velocity=VelocityKp*EncoderBias+VelocityKi*EncoderBiasIntegral;
+	return Velocity;
 }
 
 #define DIFFERENCE 18
@@ -65,8 +82,9 @@ void Car_Control(void)
 	BalancePwm=Balance_Control(RTAngle,RTGyro);
 	EncoderLeft=-Read_Encoder(EncoderLeftTim);
 	EncoderRight=Read_Encoder(EncoderRightTim);
-	MotorL=BalancePwm;
-	MotorR=BalancePwm;
+	VelocityPwm=velocity(EncoderLeft,EncoderRight);
+	MotorL=BalancePwm-VelocityPwm;
+	MotorR=BalancePwm-VelocityPwm;
 	Xianfu_Pwm();
 	Set_Pwm(MotorL,MotorR);
 }

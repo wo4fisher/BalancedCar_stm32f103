@@ -14,7 +14,7 @@ void MPU_Init(void)
     value=0x06;
     MPU6050_WR(0x1A, &value);  //MPU_9150 Config
     value=0x08;
-    MPU6050_WR(0x1B, &value);   //陀螺仪量程+-1000度/s
+    MPU6050_WR(0x1B, &value);   //陀螺仪量程+-500度/s
     value=0x18;
     MPU6050_WR(0x1C, &value);   //加速度计量程+-16g
     value=0x02;

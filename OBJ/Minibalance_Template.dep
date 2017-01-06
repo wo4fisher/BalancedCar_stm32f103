@@ -118,7 +118,7 @@ I (..\BALANCE\Control.h)(0x586E6873)
 I (..\HARDWARE\LCD5110.h)(0x58664823)
 I (..\HARDWARE\iMenu.h)(0x586E6FD4)
 I (..\HARDWARE\Encoder.h)(0x586E6AFE)
-F (..\HARDWARE\Mpu6050.c)(0x586E3A5F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\mpu6050.o --omf_browse ..\obj\mpu6050.crf --depend ..\obj\mpu6050.d)
+F (..\HARDWARE\Mpu6050.c)(0x586F05E1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\mpu6050.o --omf_browse ..\obj\mpu6050.crf --depend ..\obj\mpu6050.d)
 I (..\HARDWARE\Mpu6050.h)(0x586E3A5F)
 I (..\SYSTEM\sys\include.h)(0x586E6232)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
@@ -187,7 +187,7 @@ I (..\HARDWARE\Motor.h)(0x58661C6C)
 I (..\BALANCE\Control.h)(0x586E6873)
 I (..\HARDWARE\iMenu.h)(0x586E6FD4)
 I (..\HARDWARE\Encoder.h)(0x586E6AFE)
-F (..\HARDWARE\iMenu.c)(0x586E6FD6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imenu.o --omf_browse ..\obj\imenu.crf --depend ..\obj\imenu.d)
+F (..\HARDWARE\iMenu.c)(0x586E70A2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\imenu.o --omf_browse ..\obj\imenu.crf --depend ..\obj\imenu.d)
 I (..\HARDWARE\iMenu.h)(0x586E6FD4)
 I (..\SYSTEM\sys\include.h)(0x586E6232)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
@@ -256,7 +256,7 @@ I (..\BALANCE\Control.h)(0x586E6873)
 I (..\HARDWARE\LCD5110.h)(0x58664823)
 I (..\HARDWARE\iMenu.h)(0x586E6FD4)
 I (..\HARDWARE\Encoder.h)(0x586E6AFE)
-F (..\BALANCE\Control.c)(0x586E6FEE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
+F (..\BALANCE\Control.c)(0x586F2106)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE -I ..\BALANCE-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ST\STM32F10x-D__UVISION_VERSION="520" -DSTM32F10X_MD-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
 I (..\BALANCE\Control.h)(0x586E6873)
 I (..\SYSTEM\sys\include.h)(0x586E6232)
 I (..\SYSTEM\sys\sys.h)(0x5865F911)
